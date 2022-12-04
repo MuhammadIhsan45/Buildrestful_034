@@ -48,7 +48,7 @@ public class ProductServiceController {
         public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product){
         //jika id tidak ketemu, tidak bisa update data
         if(!productRepo.containsKey(id)){ 
-           return new ResponseEntity<>("Product key belum ada", HttpStatus.NOT_FOUND);
+           return new ResponseEntity<>("There is no product key yet", HttpStatus.NOT_FOUND);
         }
         //id sama, data akan update
         else{
