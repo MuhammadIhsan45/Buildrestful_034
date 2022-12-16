@@ -26,15 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductServiceController {
     private static Map<String, Product> productRepo = new HashMap<>();
         static {
+        double disc = 0;
+        int price = 0;
         //honey itu bagian dari product
         Product honey = new Product();
         //memberikan id pada honey
         honey.setId("1");
         //memberikan nama 
         honey.setName("Honey");
-        honey.setPrice(9000);
+        honey.setPrice(11000); 
         honey.setDisc(0.05);
-        honey.setTotal();
+        honey.setTotal ((int) (honey.getPrice()-(honey.getPrice()*honey.getDisc())));
         productRepo.put(honey.getId(), honey);
         
         //almond itu bagian daru product
@@ -44,7 +46,7 @@ public class ProductServiceController {
         almond.setName("Almond");
         almond.setPrice(11000); 
         almond.setDisc(0.05);
-        almond.setTotal();
+        almond.setTotal ((int) (almond.getPrice()-(almond.getPrice()*almond.getDisc())));
         productRepo.put(almond.getId(), almond);
         }
         //GET DELETE
@@ -63,6 +65,8 @@ public class ProductServiceController {
         }
         //id sama, data akan update
         else{
+             //memberikan perhitngan discount
+           product.setTotal ((int) (product.getPrice()-(product.getPrice()*product.getDisc())));
            productRepo.remove(id);
            product.setId(id);
            productRepo.put(id, product);
@@ -78,6 +82,8 @@ public class ProductServiceController {
         }
         //id berbeda / belum pernah dibuat data berhasil dibuat dan akan memunculkan"Product is created successfully"
         else{
+            //memberikan perhitngan discount
+           product.setTotal ((int) (product.getPrice()-(product.getPrice()*product.getDisc())));
            productRepo.put(product.getId(), product);
            return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
             }

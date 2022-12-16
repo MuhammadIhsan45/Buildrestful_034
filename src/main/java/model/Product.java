@@ -40,7 +40,7 @@ public class Product {
         this.price = price;
     }
 
-     public double getDisc(double d) {
+     public double getDisc() {
         return disc;
     }
     public void setDisc(double disc) {
@@ -51,8 +51,8 @@ public class Product {
         return total;
     }
 
-    public void setTotal() {
-        this.total = (int)(price - price * disc);
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     
