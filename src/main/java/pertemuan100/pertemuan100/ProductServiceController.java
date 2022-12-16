@@ -29,11 +29,17 @@ public class ProductServiceController {
         Product honey = new Product();
         honey.setId("1");
         honey.setName("Honey");
+        honey.setPrice(9000);
+        honey.setDisc(0.05);
+        honey.setTotal();
         productRepo.put(honey.getId(), honey);
     
         Product almond = new Product();
         almond.setId("2");
         almond.setName("Almond");
+        almond.setPrice(11000);
+        almond.setDisc(0.05);
+        almond.setTotal();
         productRepo.put(almond.getId(), almond);
         }
         //GET DELETE
